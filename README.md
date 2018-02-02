@@ -1,2 +1,2 @@
 # GoFish
-A program with bugs that needs to be fixed.
+A program with bugs that need to be fixed.
