@@ -1,4 +1,4 @@
-import pdb; pdb.set_trace()
+#import pdb; pdb.set_trace()
 from Deck import Deck
 from random import randint
 
@@ -48,7 +48,6 @@ def play(computer_hand, human_hand, deck):
             print("Your turn!")
             player = human_hand
             opponent = computer_hand
-            points = human_points
             
             if check_four_kind(human_hand):
                 human_points += 1
@@ -66,10 +65,9 @@ def play(computer_hand, human_hand, deck):
             print("My turn!")
             player = computer_hand
             opponent = human_hand
-            points = computer_points
             
             if check_four_kind(player):
-                points += 1
+                computer_points += 1
                 print("  Point awarded!")
             
             guess = randint(0, len(computer_hand))
