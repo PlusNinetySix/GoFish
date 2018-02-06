@@ -21,11 +21,11 @@ def check_four_kind(hand):
     fourkind = [card for card in hand if hand.count(card) == 4]
     if fourkind:
         for card in fourkind:
-            hand.pop()
+            hand.pop(card)
             
-            return True
+        return True
     
-    return True
+    return False
         
 
 def play(computer_hand, human_hand, deck):
@@ -70,8 +70,8 @@ def play(computer_hand, human_hand, deck):
                 computer_points += 1
                 print("  Point awarded!")
             
-            guess = randint(0, len(computer_hand))
-        
+            guess = randint(0, len(computer_hand)-1)
+
         print("  Do you have a {0}?".format(player[guess].value()))
         
         if player[guess] in opponent:
@@ -81,12 +81,12 @@ def play(computer_hand, human_hand, deck):
                 player.append(opponent.remove(player[guess]))
         
             if check_four_kind(player):
-                points += 1
+                computer_points += 1
                 print("  Point awarded!")
             
         else:
             print("    Go fish!")
-            human_hand.append(deck.deal())
+            player.append(deck.deal())
             turn += 1
             
         print("The score is {0} to {1}!".format(human_points, computer_points))

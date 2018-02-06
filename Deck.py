@@ -17,13 +17,13 @@ class Card(object):
         return not self == other
     
     def __lt__(self, other):
-        return self._number < other.number
+        return self._number < other._number
     
     def __le__(self, other):
         return (self < other) or (self == other)
     
     def __gt__(self, other):
-        return self._number > other.number
+        return self._number > other._number
     
     def __ge__(self, other):
         return (self > other) or (self == other)
@@ -31,7 +31,7 @@ class Card(object):
     def number(self):
         return self._number
     
-    def value(self):
+    def value(self) -> object:
         words = {2:"Two", 3:"Three", 4:"Four", 5:"Five",\
              6:"Six", 7:"Seven", 8:"Eight", 9:"Nine",\
              10:"Ten", 11:"Jack", 12:"Queen", 13:"King",\
